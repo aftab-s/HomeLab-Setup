@@ -1,0 +1,987 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Dashboard that has visualizations for monitoring metrics from Docker containers",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlPu"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 7,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 20,
+          "valueSize": 30
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "sum by(state)(engine_daemon_container_states_containers)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Containers Overview",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "paused",
+            "renamePattern": "Paused"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "running",
+            "renamePattern": "Running"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "stopped",
+            "renamePattern": "Stopped"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "The number of CPUs that the host system of the engine has.",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 7,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "engine_daemon_engine_cpus_cpus",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Count",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "The number of seconds it takes to prepare to run health checks",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 10,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "engine_daemon_health_check_start_duration_seconds_count",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Health Check Duration",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"engine_daemon_health_check_start_duration_seconds_count\", instance=\"localhost:9323\", job=\"docker-containers\"}",
+            "renamePattern": "Docker Containers"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "timezone": [
+          "browser"
+        ],
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "container_memory_rss{name=~\".+\"}",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "container_memory_usage_bytes{name=~\".+\"}",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "sum(container_memory_cache{name=~\".+\"}) by (name)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Cached Memory per Container",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "Memory Usage per Prometheus Jobs",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decgbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 10,
+        "x": 0,
+        "y": 3
+      },
+      "id": 4,
+      "options": {
+        "displayMode": "gradient",
+        "maxVizHeight": 100,
+        "minVizHeight": 20,
+        "minVizWidth": 75,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "manual",
+        "text": {
+          "titleSize": 18,
+          "valueSize": 21
+        },
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "process_virtual_memory_bytes/1024/1024/1024",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Job Memory Usage",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{instance=\"localhost:8080\", job=\"cadvisor\"}",
+            "renamePattern": "CAdvisor"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{instance=\"localhost:9090\", job=\"prometheus\"}",
+            "renamePattern": "Prometheus"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{instance=\"localhost:9182\", job=\"windows-exporter\"}",
+            "renamePattern": "Windows Exporter"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{instance=\"localhost:9323\", job=\"docker-containers\"}",
+            "renamePattern": "Docker Containers"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 13,
+          "valueSize": 20
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(container_cpu_usage_seconds_total{name=~\".+\"}[1m])) by (name) * 100",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Usage per Container",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "grafana",
+            "renamePattern": "Grafana"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "uptime-kuma",
+            "renamePattern": "Uptime Kuma"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "The total received bytes rate per second for each container",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 0,
+        "y": 16
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "timezone": [
+          "browser"
+        ],
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(container_network_receive_bytes_total{name=~\".+\"}[1m])) by (name)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Received Network Traffic per Container",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "The total transmit bytes rate per second for each container",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 8,
+        "y": 16
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "timezone": [
+          "browser"
+        ],
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(container_network_transmit_bytes_total{name=~\".+\"}[1m])) by (name)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Sent Network Traffic per Container",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "decgbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 16,
+        "y": 16
+      },
+      "id": 8,
+      "maxDataPoints": 509,
+      "options": {
+        "minVizHeight": 200,
+        "minVizWidth": 200,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "sum(container_spec_memory_limit_bytes{name=~\".+\"} - container_memory_usage_bytes{name=~\".+\"}) by (name)",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "sum(container_spec_memory_limit_bytes{name=~\".+\"}) by (name) ",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+          },
+          "editorMode": "code",
+          "expr": "container_memory_usage_bytes{name=~\".+\"}/1024/1024/1024",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Usage Memory per Container",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{container_label_com_docker_compose_config_hash=\\\"9e233d292d2114ca0594095aae75753556eea2dc65f296e13a5fca92d2f8aafe\\\", container_label_com_docker_compose_container_number=\\\"1\\\", container_label_com_docker_compose_image=\\\"sha256:b23ac695b1b49a3cc6a570a68818e1d6ade2ba98a233f0783e2421e69cf4abd3\\\", container_label_com_docker_compose_oneoff=\\\"False\\\", container_label_com_docker_compose_project=\\\"uptimekuma\\\", container_label_com_docker_compose_project_config_files=\\\"D:\\\\Projects\\\\Uptime Kuma\\\\docker-compose.yml\\\", container_label_com_docker_compose_project_working_dir=\\\"D:\\\\Projects\\\\Uptime Kuma\\\", container_label_com_docker_compose_service=\\\"uptime-kuma\\\", container_label_com_docker_compose_version=\\\"2.23.3\\\", id=\\\"/docker/1d2e68b3cfcf5aa999a3169a38143fdf7840c0f397489c499ed2fa69d2b49c06\\\", image=\\\"louislam/uptime-kuma:1\\\", instance=\\\"localhost:8080\\\", job=\\\"cadvisor\\\", name=\\\"uptime-kuma\\\"}",
+            "renamePattern": "Uptime Kuma"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{container_label_desktop_docker_io_binds_0_Source=\\\"/\\\", container_label_desktop_docker_io_binds_0_SourceKind=\\\"hostFile\\\", container_label_desktop_docker_io_binds_0_Target=\\\"/rootfs\\\", container_label_desktop_docker_io_binds_1_Source=\\\"/var/run\\\", container_label_desktop_docker_io_binds_1_SourceKind=\\\"hostFile\\\", container_label_desktop_docker_io_binds_1_Target=\\\"/var/run\\\", container_label_desktop_docker_io_binds_2_Source=\\\"/sys\\\", container_label_desktop_docker_io_binds_2_SourceKind=\\\"hostFile\\\", container_label_desktop_docker_io_binds_2_Target=\\\"/sys\\\", container_label_desktop_docker_io_binds_3_Source=\\\"/var/lib/docker/\\\", container_label_desktop_docker_io_binds_3_SourceKind=\\\"hostFile\\\", container_label_desktop_docker_io_binds_3_Target=\\\"/var/lib/docker\\\", id=\\\"/docker/237ac0de69ecb2cce1b3e76ee9eb0afabac8cbe1d654b2f228cb48d9a128a35c\\\", image=\\\"gcr.io/cadvisor/cadvisor:v0.47.2\\\", instance=\\\"localhost:8080\\\", job=\\\"cadvisor\\\", name=\\\"cAdvisor\\\"}",
+            "renamePattern": "cAdvisor"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{container_label_maintainer=\\\"Grafana Labs <hello@grafana.com>\\\", id=\\\"/docker/ef5fa110aa95a099dbb8efcd0d54eecf89334cf43eb6b188ece49c13f0530644\\\", image=\\\"grafana/grafana\\\", instance=\\\"localhost:8080\\\", job=\\\"cadvisor\\\", name=\\\"grafana\\\"}",
+            "renamePattern": "Grafana"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{container_label_maintainer=\\\"NGINX Docker Maintainers <docker-maint@nginx.com>\\\", id=\\\"/docker/2fd6053be6fbf07e918c215962be909c336db5ea9f89964fd88dd95774088ad8\\\", image=\\\"aftab2010/hello-world-hover:v2\\\", instance=\\\"localhost:8080\\\", job=\\\"cadvisor\\\", name=\\\"HelloWorldHoverV2\\\"}",
+            "renamePattern": "HelloWorldHoverV2"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gauge"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 39,
+  "tags": [
+    "cAdvisor",
+    "Docker-Metrics",
+    "Containers",
+    "Prometheus"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Docker Container Dashboard",
+  "uid": "b1931c71-386f-410a-a78d-1efeebc5184e",
+  "version": 12,
+  "weekStart": ""
+}

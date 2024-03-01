@@ -1,0 +1,11 @@
+Days left to SSL certificate expiry.
+max((probe_ssl_earliest_cert_expiry{instance="https://portfolio.aftabs.co"} - time())/86400)
+
+Probe duration is the amount of time it takes for a probe to complete. A probe is a test or measurement that is used to assess the state or behavior of a system or component. Probes can be used to monitor a variety of things, such as network performance, application availability, and resource utilization.
+avg by(phase)(probe_http_duration_seconds)
+
+HTTP status codes are used to indicate the success or failure of an HTTP request.
+probe_http_status_code
+
+Probe duration is the amount of time it takes for a probe to complete. A probe is a test or measurement that is used to assess the state or behavior of a system or component. Probes can be used to monitor a variety of things, such as network performance, application availability, and resource utilization.
+probe_http_duration_seconds{instance="https://portfolio.aftabs.co"}

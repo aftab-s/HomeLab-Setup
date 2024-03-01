@@ -1,0 +1,1362 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Dashboard for monitoring Abilytics Website",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "panels": [],
+      "title": "Abilytics Website Dashboard",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 1
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_http_version{instance=\"https://abilytics.com\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Version",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.2
+              },
+              {
+                "color": "red",
+                "value": 0.6
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 5,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "avg(probe_duration_seconds{instance=\"https://abilytics.com\"}) by (instance)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Average Probe Duration",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "red",
+                "value": 500
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 9,
+        "y": 1
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "probe_http_status_code{instance=\"https://abilytics.com\"}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Status Code",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 13,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "text": {
+          "titleSize": 15,
+          "valueSize": 15
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_success{instance=\"https://abilytics.com\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Status",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_success\", instance=\"https://abilytics.com\", job=\"blackbox\"}",
+            "renamePattern": "Abilytics Status"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "It is a counter that tracks the number of times a probe to the URL https://portfolio.aftabs.co has failed due to a regular expression match. The instance parameter is a label that is used to identify the URL of the probe. The probe_failed_due_to_regex metric is typically used to monitor the health of a web application by checking for errors that are returned by the application. If the probe fails due to a regular expression match, it means that the application returned an error message that matches the specified regular expression. ",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 17,
+        "y": 1
+      },
+      "id": 13,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_failed_due_to_regex{instance=\"https://abilytics.com\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Probe Failure Due to Regex",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-red",
+                "value": 20
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "dtdhms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 1
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_ssl_earliest_cert_expiry{instance=\"https://portfolio.aftabs.co\"} - time()",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "SSL Expiry",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.025
+              },
+              {
+                "color": "red",
+                "value": 0.05
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 5,
+        "y": 4
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "avg(probe_dns_lookup_time_seconds{instance=\"https://abilytics.com\"}) by (instance)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Average DNS Lookup",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "This command is typically used to monitor the health of a network by checking the IP protocol of a given target. If the probe is successful, it will return a value of 4 or 6, indicating that the target is using IPv4 or IPv6, respectively. If the probe is unsuccessful, it will return a value of 0, indicating that the target is not reachable or that the probe was unable to determine the IP protocol of the target.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 2,
+                  "text": "Target Not Reachable"
+                },
+                "4": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "IPv4"
+                },
+                "6": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "IPv6"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 4
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_ip_protocol{instance=\"https://portfolio.aftabs.co\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "IP Protocol",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 0,
+        "y": 7
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_http_status_code{instance=\"https://portfolio.aftabs.co\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Status Code",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_status_code\", instance=\"https://portfolio.aftabs.co\", job=\"blackbox\"}",
+            "renamePattern": "www.abilytics.com"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 7,
+        "y": 7
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "avg(probe_duration_seconds{instance=\"https://abilytics.com\"}) by (instance)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Average Probe Duration",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "\nHTTP duration is a measure of how long it takes for an HTTP request to complete all of its phases. This includes the time it takes to DNS lookup, connect to the server, send the request, receive the response, and render the page. HTTP duration is an important metric for measuring the performance of a web application.\n\nThere are four phases of an HTTP request:\n\nDNS lookup: This is the time it takes to resolve the hostname of the server to an IP address.\nConnect: This is the time it takes to establish a connection to the server.\nRequest: This is the time it takes to send the HTTP request to the server.\nResponse: This is the time it takes to receive the HTTP response from the server.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 7
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_http_duration_seconds{instance=\"https://abilytics.com\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Duration (All Phases)",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"connect\"}",
+            "renamePattern": "Connect"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"processing\"}",
+            "renamePattern": "Processing"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"resolve\"}",
+            "renamePattern": "Resolve"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"tls\"}",
+            "renamePattern": "TLS"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"transfer\"}",
+            "renamePattern": "Transfer"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "\nHTTP duration is a measure of how long it takes for an HTTP request to complete all of its phases. This includes the time it takes to DNS lookup, connect to the server, send the request, receive the response, and render the page. HTTP duration is an important metric for measuring the performance of a web application.\n\nThere are four phases of an HTTP request:\n\nDNS lookup: This is the time it takes to resolve the hostname of the server to an IP address.\nConnect: This is the time it takes to establish a connection to the server.\nRequest: This is the time it takes to send the HTTP request to the server.\nResponse: This is the time it takes to receive the HTTP response from the server.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 0,
+        "y": 15
+      },
+      "id": 15,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 100,
+        "minVizHeight": 20,
+        "minVizWidth": 75,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "manual",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.2.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_http_duration_seconds{instance=\"https://abilytics.com\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Duration (All Phases)",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"connect\"}",
+            "renamePattern": "Connect"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"processing\"}",
+            "renamePattern": "Processing"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"resolve\"}",
+            "renamePattern": "Resolve"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"tls\"}",
+            "renamePattern": "TLS"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"transfer\"}",
+            "renamePattern": "Transfer"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "description": "\nHTTP duration is a measure of how long it takes for an HTTP request to complete all of its phases. This includes the time it takes to DNS lookup, connect to the server, send the request, receive the response, and render the page. HTTP duration is an important metric for measuring the performance of a web application.\n\nThere are four phases of an HTTP request:\n\nDNS lookup: This is the time it takes to resolve the hostname of the server to an IP address.\nConnect: This is the time it takes to establish a connection to the server.\nRequest: This is the time it takes to send the HTTP request to the server.\nResponse: This is the time it takes to receive the HTTP response from the server.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 19,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 7,
+        "y": 15
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "probe_http_duration_seconds{instance=\"https://abilytics.com\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Duration (All Phases)",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"connect\"}",
+            "renamePattern": "Connect"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"processing\"}",
+            "renamePattern": "Processing"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"resolve\"}",
+            "renamePattern": "Resolve"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"tls\"}",
+            "renamePattern": "TLS"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "{__name__=\"probe_http_duration_seconds\", instance=\"https://abilytics.com\", job=\"blackbox\", phase=\"transfer\"}",
+            "renamePattern": "Transfer"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a8baea48-fc13-46f8-806b-400b7e0f5fe3"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-YlBl"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 15
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "f68641c7-be24-41e2-925f-fd2ac0ddf538"
+          },
+          "editorMode": "code",
+          "expr": "avg(probe_dns_lookup_time_seconds{instance=\"https://abilytics.com\"}) by (instance)",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Average DNS Lookup",
+      "transparent": true,
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 39,
+  "tags": [
+    "prometheus",
+    "blackbox"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Abilytics Dashboard",
+  "uid": "c818f01b-4cc2-4fde-9976-c6846ca64470",
+  "version": 6,
+  "weekStart": ""
+}

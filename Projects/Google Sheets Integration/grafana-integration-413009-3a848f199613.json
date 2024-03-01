@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "grafana-integration-413009",
+  "private_key_id": "3a848f19961366efcac5e5a41d438652486b418e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCqOUWzhIchxpHP\nhgxo4E0KPteMsAXFeILif/vO9lLMeVMpVfihA5qe7mXdcNg/iLedAcPLH9aHcopZ\nEmwRvxiXOEuCOUwZ4G8frUfX11N1uOoE8V2KmEMuLuc/KtyqqGNjbuNwedJ88ese\nrgsn/8i6HAnqpQpm9Odd/fqEIs1tMORvxZ8uz/tD1sDM3hygw2MG9RGIoWf4YNta\ns769ZQdO6E6u+7m+bYF8t21Pq/jsrWLjGdznj1Yzqsr+uGCieYetherK02groBXN\nsyK+B2QXGKhRigo2jVmnWJwgJaPBEIaGo+3jRQqPjwWumly212wkmWjzwl7dnBkm\nBD+BOfU1AgMBAAECggEAEeiqo6Nq0CvjBVFWFuaaVFyeMugGA2uVYZ0TcgfKWEbf\nb/bijJYje1sbjnuj1LNelf8siT9VQ7TSR2K/yfIv9SDwGMhMcGCDcHK7n0LBPh5x\nSInYTI+Oadp3a9bnlnDW3Aw7k4bNlWWiVfz7oX6wsJvoky4/9OsJOINTCvnaYQVa\nhYiDcrQFst0T9+RGlICthqBzE1bYHdwjELh4LLzZoelZv/vaIIBqrfaME2FwV6/I\nLGXkW3y5E/QqQROQFpuOJXqFBHpNAVTYfNwCiPPEfnXbMIXC6qyZyjihjvHKYZbM\nmRXTqaXTrdzLFjTCoZT+f+MgMI2Aoo6Ceje3dqz0gQKBgQDuAkfy1vTIk4X/A+8W\newZdnzrYm5bOqLnkvvjgLFCf9f6I2VcI8UoDVR0saSyLxKZveKuEU7LrGl5TzOvY\nc8TiMtn/NuWEdZXnFlvbndSZk3BCodLkntTcnElRgd85KisXdjDYA3dUEZm46jvM\nvyXZGhxwa/TL53yycyyt4ryIVQKBgQC3F0cO37EBWXGCqvZInYq/jjF9XIDyd6FJ\nE1/yKa0i0TWs+7b0I5ckETSrPRle7nk8s0/C5ivtImLYpcHxu2XxhEzabLW7xk66\nZ2wXmlbmgCecqM+1om55csfdXYKgX9QDgfjnx8NqifhiJyxx9IO3w+vLzYEerFff\nQ7WutpIZYQKBgQC+c8DTB0MVBUdiCunUmVk8rV/PWKFSeR1Xd6F68LsLZTLqms/U\nbhAFnqQbl4V3ykJMTMkiuD8hdhYpBH9s0yamwn5ChNEgL19mbTPQBvnKcnqQNyGk\no5w9dCoPONdAzQdyXLc1A4EHGpZhq71yVzqYARbktt5KE9Bqk1MbSaYHiQKBgAFm\nTyfA9ARzn5eFIQ7bDXV7a8tuipnP6k65tDEQun8apFNnNTXWk9A1xXZNqET+g7TA\nFisCQXG1opXPZpUnfpcDEOdWj2kZEf8AzWW8y09FyYe8DqJv1HJfO0Ho9hetw9wn\nATUcZNUKqvhtHjzcxqj/+Wx8bLFEVgOh6+CjCqjhAoGBALeBDLPGcYxWv/f50HVz\nmE+ayd3VlaEFwV+urILq44658yXpy1hvrXfbWDIx1YjtPvPcU591ODUp6HqlIEX6\n/nW2vtrxrvK4x4GOyEaQYAVPTO9+D6U/4u8Qq571vXXhF9RbEG9ZqCvsQ7HqrqUN\nNhmWcLjQuTzrkIKWtpwkUoDH\n-----END PRIVATE KEY-----\n",
+  "client_email": "grafana-svc@grafana-integration-413009.iam.gserviceaccount.com",
+  "client_id": "116968236066777178099",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/grafana-svc%40grafana-integration-413009.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

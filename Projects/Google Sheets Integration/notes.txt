@@ -1,0 +1,22 @@
+Google Sheets Integration on Grafana
+
+Generate a JWT file
+Open the Credentials page in the Google API Console.
+Click Create Credentials then click Service account.
+On the Create service account page, enter the Service account details.
+On the Create service account page, fill in the Service account details and then click Create
+On the Service account permissions page, don’t add a role to the service account. Just click Continue
+In the next step, click Create Key. Choose key type JSON and click Create. A JSON key file will be created and downloaded to your computer
+Open the Google Sheets in API Library and enable access for your account
+Open the Google Drive in API Library and enable access for your account. Access to the Google Drive API is used to list all spreadsheets that you have access to.
+Share any private files/folders you want to access with the service account's email address. The email is specified as client_email in the Google JWT File.
+Drag the file to the dotted zone above. Then click Save & Test. The file contents will be encrypted and saved in the Grafana database.
+
+SVC Account Name : Grafana SVC
+Account ID : grafana-svc
+Email Address : grafana-svc@grafana-integration-413009.iam.gserviceaccount.com
+
+Share The sheets with this mail Id and you can get it setup in grafana
+
+
+

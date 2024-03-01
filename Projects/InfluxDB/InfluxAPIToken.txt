@@ -1,0 +1,5 @@
+nVju3GzO2g9wh1MOy-Q_TtgpAZ4qRV7SYfQmPqJnlDDu8v4OiCwye40Z1lOy7Cq0c-8TKcCFEnpOyNxFhKm2Rw==
+
+export INFLUX_TOKEN=x3KwQ314mgI4SVDKqAwXdrFuvS_7nxDjRrHwa5-nP_AsI11fSHsRKiYaOZsFdN31FX5Rdvxm3M-L8sgnYLN2LA==
+
+telegraf --config http://localhost:8086/api/v2/telegrafs/0c829afe0833c000

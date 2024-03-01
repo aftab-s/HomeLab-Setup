@@ -1,0 +1,14 @@
+rate(windows_logical_disk_read_bytes_total[5m])/1024/1024/1024
+Number of bytes that can be read from a disk per second.
+
+rate(windows_logical_disk_write_bytes_total[5m])/1024/1024/1024
+Number of bytes that can be wrote to a disk per second.
+
+windows_os_physical_memory_free_bytes/1024/1024/1024
+Amount of physical memory currently unused and available on a Windows machine
+
+windows_logical_disk_size_bytes/1024/1024/1024
+Amount of storage capacity on a disk drive that is not currently in use. 
+
+topk(5,sum(windows_cpu_time_total/(1000*60)) by (mode))
+Time that processor spent in different modes.
